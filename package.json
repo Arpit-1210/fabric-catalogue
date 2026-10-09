@@ -1,0 +1,15 @@
+{
+  "name": "fabric-catalogue",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview" },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "jspdf": "^2.5.1",
+    "jszip": "^3.10.1",
+    "read-excel-file": "^5.8.5",
+    "write-excel-file": "^2.0.8"
+  },
+  "devDependencies": { "vite": "^5.4.0" }
+}
