@@ -38,11 +38,11 @@ export async function requireAccess() {
     if (!data?.session) await showLogin(msg);
     let me = null;
     try { me = await loadMe(); }
-    catch (e) { msg = 'Could not check your access: ' + (e.message || e); await supabase.auth.signOut(); continue; }
+    catch (e) { msg = 'Could not check your access: ' + (e.message || e); await supabase.auth.signOut({ scope: 'local' }); continue; }
     if (me) return me;
-    await supabase.auth.signOut();
+    await supabase.auth.signOut({ scope: 'local' });
     msg = 'This login does not have access to the Fabric Catalogue. Ask the administrator.';
   }
 }
 
-export async function logout() { await supabase.auth.signOut(); location.hash = ''; location.reload(); }
+export async function logout() { await supabase.auth.signOut({ scope: 'local' }); location.hash = ''; location.reload(); }
